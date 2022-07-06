@@ -37,6 +37,18 @@ const resolvers = {
             }
         },
 
+        //Find All Book by Genre
+        bookByGenre: async (praent, args) => {
+            try {
+                const dataBooks = await BookModel.find({genre: args.genre})
+                return dataBooks
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
+        //==========
+
         //Find All Author
         authors: async () => {
             // authors
@@ -64,6 +76,16 @@ const resolvers = {
             try {
                 const dataAuthor = await AuthorModel.findOne({name: args.name})
                 return dataAuthor
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
+        //Find All Author by Age
+        authorByAge: async (preant, agrs) => {
+            try {
+                const dataAuthors = await AuthorModel.find({age: agrs.age})
+                return dataAuthors
             } catch (error) {
                 console.log(error);
             }
