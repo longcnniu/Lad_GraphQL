@@ -18,20 +18,22 @@ const typeDefs = gql`
 	# ROOT TYPE
 	type Query {
 		books: [Book]
-        book(id: ID!): Book 
+        book(id: ID!): Book
+        bookByName(name: String!): Book
         authors: [Author]
-        author(id: ID!): Author 
+        author(id: ID!): Author
+        authorByName(name: String!):Author
 	}
 
     type Mutation {
         createAuthor(
-            id: ID!,
+            id: ID,
             name: String,
             age: Int
         ): Author
 
         createBook(
-            id: ID!,
+            id: ID,
 		    name: String,
 		    genre: String,
             authorId: ID!
